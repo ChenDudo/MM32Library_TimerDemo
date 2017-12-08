@@ -1,0 +1,19 @@
+"--endian=little" 
+
+"--cpu=Cortex-M3" 
+
+"--fpu=None" 
+
+"-p" 
+
+"C:\Program Files (x86)\IAR Systems\Embedded Workbench 7.5\arm\CONFIG\debugger\MM\MM32L373PF.ddf" 
+
+"--semihosting" 
+
+"--device=MM32L373PF" 
+
+"--multicore_nr_of_cores=1" 
+
+
+
+

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<userOverrides>
+    <override>
+        <path>C:\Users\ChenDu\Desktop\Demo_delete\TIM_BLDC\board\tim.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>C:\Users\ChenDu\Desktop\TIM_BLDC\app\main.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>C:\Users\ChenDu\Desktop\TIM_BLDC\board\bldc.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>C:\Users\ChenDu\Desktop\TIM_BLDC\board\tim.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>D:\1-Work\project9_TIMBLDC\TIM_BLDC\chip\HAL_lib\HAL_tim.c</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>D:\1-Work\project9_TIMBLDC\TIM_BLDC\chip\HAL_lib\inc\HAL_gpio.h</path>
+        <encoding>System</encoding>
+    </override>
+</userOverrides>

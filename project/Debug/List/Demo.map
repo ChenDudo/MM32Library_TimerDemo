@@ -1,0 +1,353 @@
+###############################################################################
+#
+# IAR ELF Linker V8.11.1.13263/W32 for ARM                08/Dec/2017  18:14:00
+# Copyright 2007-2017 IAR Systems AB.
+#
+#    Output file  =  
+#        D:\1-Work\project9_TIMBLDC\TIM_BLDC\project\Debug\Exe\Demo.out
+#    Map file     =  
+#        D:\1-Work\project9_TIMBLDC\TIM_BLDC\project\Debug\List\Demo.map
+#    Command line =  
+#        -f C:\Users\ChenDu\AppData\Local\Temp\EW8D0F.tmp
+#        (D:\1-Work\project9_TIMBLDC\TIM_BLDC\project\Debug\Obj\adc.o
+#        D:\1-Work\project9_TIMBLDC\TIM_BLDC\project\Debug\Obj\HAL_adc.o
+#        D:\1-Work\project9_TIMBLDC\TIM_BLDC\project\Debug\Obj\HAL_bkp.o
+#        D:\1-Work\project9_TIMBLDC\TIM_BLDC\project\Debug\Obj\HAL_can.o
+#        D:\1-Work\project9_TIMBLDC\TIM_BLDC\project\Debug\Obj\HAL_crc.o
+#        D:\1-Work\project9_TIMBLDC\TIM_BLDC\project\Debug\Obj\HAL_dac.o
+#        D:\1-Work\project9_TIMBLDC\TIM_BLDC\project\Debug\Obj\HAL_dma.o
+#        D:\1-Work\project9_TIMBLDC\TIM_BLDC\project\Debug\Obj\HAL_exti.o
+#        D:\1-Work\project9_TIMBLDC\TIM_BLDC\project\Debug\Obj\HAL_flash.o
+#        D:\1-Work\project9_TIMBLDC\TIM_BLDC\project\Debug\Obj\HAL_gpio.o
+#        D:\1-Work\project9_TIMBLDC\TIM_BLDC\project\Debug\Obj\HAL_i2c.o
+#        D:\1-Work\project9_TIMBLDC\TIM_BLDC\project\Debug\Obj\HAL_iwdg.o
+#        D:\1-Work\project9_TIMBLDC\TIM_BLDC\project\Debug\Obj\HAL_misc.o
+#        D:\1-Work\project9_TIMBLDC\TIM_BLDC\project\Debug\Obj\HAL_pwr.o
+#        D:\1-Work\project9_TIMBLDC\TIM_BLDC\project\Debug\Obj\HAL_rcc.o
+#        D:\1-Work\project9_TIMBLDC\TIM_BLDC\project\Debug\Obj\HAL_rtc.o
+#        D:\1-Work\project9_TIMBLDC\TIM_BLDC\project\Debug\Obj\HAL_spi.o
+#        D:\1-Work\project9_TIMBLDC\TIM_BLDC\project\Debug\Obj\HAL_tim.o
+#        D:\1-Work\project9_TIMBLDC\TIM_BLDC\project\Debug\Obj\HAL_uart.o
+#        D:\1-Work\project9_TIMBLDC\TIM_BLDC\project\Debug\Obj\HAL_wwdg.o
+#        D:\1-Work\project9_TIMBLDC\TIM_BLDC\project\Debug\Obj\main.o
+#        D:\1-Work\project9_TIMBLDC\TIM_BLDC\project\Debug\Obj\startup_MM32L3xx.o
+#        D:\1-Work\project9_TIMBLDC\TIM_BLDC\project\Debug\Obj\system_MM32L3xx.o
+#        D:\1-Work\project9_TIMBLDC\TIM_BLDC\project\Debug\Obj\tim.o
+#        D:\1-Work\project9_TIMBLDC\TIM_BLDC\project\Debug\Obj\tim3.o -o
+#        D:\1-Work\project9_TIMBLDC\TIM_BLDC\project\Debug\Exe\Demo.out --map
+#        D:\1-Work\project9_TIMBLDC\TIM_BLDC\project\Debug\List\Demo.map
+#        --config "C:\Program Files (x86)\IAR Systems\Embedded Workbench
+#        8.0\arm\config\linker\MM\MM32L37xxx.icf" --semihosting --entry
+#        __iar_program_start --vfe --text_out locale)
+#
+###############################################################################
+
+*******************************************************************************
+*** RUNTIME MODEL ATTRIBUTES
+***
+
+CppFlavor       = *
+__SystemLibrary = DLib
+__dlib_version  = 6
+
+
+*******************************************************************************
+*** HEAP SELECTION
+***
+
+The basic heap was selected because no calls to memory allocation
+functions were found in the application outside of system library
+functions, and there are calls to deallocation functions in the
+application.
+
+
+*******************************************************************************
+*** PLACEMENT SUMMARY
+***
+
+"A0":  place at 0x08000000 { ro section .intvec };
+"P1":  place in [from 0x08000000 to 0x0801ffff] { ro };
+"P2":  place in [from 0x20000000 to 0x20004fff] { rw, block CSTACK, block HEAP };
+initialize by copy { rw };
+
+  Section            Kind        Address    Size  Object
+  -------            ----        -------    ----  ------
+"A0":                                       0xec
+  .intvec            ro code  0x08000000    0xec  startup_MM32L3xx.o [1]
+                            - 0x080000ec    0xec
+
+"P1":                                     0x1343
+  .text              ro code  0x080000ec   0x644  HAL_tim.o [1]
+  .text              ro code  0x08000730    0x90  HAL_rcc.o [1]
+  .text              ro code  0x080007c0   0x5ec  tim.o [1]
+  .text              ro code  0x08000dac    0xd6  HAL_gpio.o [1]
+  .text              ro code  0x08000e84    0x80  HAL_misc.o [1]
+  .text              ro code  0x08000f04   0x158  main.o [1]
+  .text              ro code  0x0800105c   0x118  system_MM32L3xx.o [1]
+  .text              ro code  0x08001174   0x12c  tim3.o [1]
+  .text              ro code  0x080012a0    0x38  packbits_init_single.o [4]
+  .text              ro code  0x080012d8    0x28  data_init.o [4]
+  .iar.init_table    const    0x08001300    0x10  - Linker created -
+  .text              ro code  0x08001310    0x1a  cmain.o [4]
+  .text              ro code  0x0800132a     0x4  low_level_init.o [3]
+  .text              ro code  0x0800132e     0x4  exit.o [3]
+  .text              ro code  0x08001334     0xa  cexit.o [4]
+  .text              ro code  0x08001340    0x14  exit.o [5]
+  .text              ro code  0x08001354     0xc  cstartup_M.o [4]
+  .text              ro code  0x08001360     0x8  startup_MM32L3xx.o [1]
+  .text              ro code  0x08001368     0x4  startup_MM32L3xx.o [1]
+  .text              ro code  0x0800136c     0x4  startup_MM32L3xx.o [1]
+  .text              ro code  0x08001370     0x4  startup_MM32L3xx.o [1]
+  .text              ro code  0x08001374     0x4  startup_MM32L3xx.o [1]
+  .text              ro code  0x08001378     0x4  startup_MM32L3xx.o [1]
+  .text              ro code  0x0800137c     0x4  startup_MM32L3xx.o [1]
+  .text              ro code  0x08001380     0x4  startup_MM32L3xx.o [1]
+  .text              ro code  0x08001384     0x4  startup_MM32L3xx.o [1]
+  .text              ro code  0x08001388     0x4  startup_MM32L3xx.o [1]
+  .text              ro code  0x0800138c     0x4  startup_MM32L3xx.o [1]
+  .text              ro code  0x08001390     0x4  startup_MM32L3xx.o [1]
+  .text              ro code  0x08001394     0x4  startup_MM32L3xx.o [1]
+  .text              ro code  0x08001398     0x4  startup_MM32L3xx.o [1]
+  .text              ro code  0x0800139c     0x4  startup_MM32L3xx.o [1]
+  .text              ro code  0x080013a0     0x4  startup_MM32L3xx.o [1]
+  .text              ro code  0x080013a4     0x4  startup_MM32L3xx.o [1]
+  .text              ro code  0x080013a8     0x4  startup_MM32L3xx.o [1]
+  .text              ro code  0x080013ac     0x4  startup_MM32L3xx.o [1]
+  .text              ro code  0x080013b0     0x4  startup_MM32L3xx.o [1]
+  .text              ro code  0x080013b4     0x4  startup_MM32L3xx.o [1]
+  .text              ro code  0x080013b8     0x4  startup_MM32L3xx.o [1]
+  .text              ro code  0x080013bc     0x4  startup_MM32L3xx.o [1]
+  .text              ro code  0x080013c0     0x4  startup_MM32L3xx.o [1]
+  .text              ro code  0x080013c4     0x4  startup_MM32L3xx.o [1]
+  .text              ro code  0x080013c8     0x4  startup_MM32L3xx.o [1]
+  .text              ro code  0x080013cc     0x4  startup_MM32L3xx.o [1]
+  .text              ro code  0x080013d0     0x4  startup_MM32L3xx.o [1]
+  .text              ro code  0x080013d4     0x4  startup_MM32L3xx.o [1]
+  .text              ro code  0x080013d8     0x4  startup_MM32L3xx.o [1]
+  .text              ro code  0x080013dc     0x4  startup_MM32L3xx.o [1]
+  .text              ro code  0x080013e0     0x4  startup_MM32L3xx.o [1]
+  .text              ro code  0x080013e4     0x4  startup_MM32L3xx.o [1]
+  .text              ro code  0x080013e8     0x4  startup_MM32L3xx.o [1]
+  .text              ro code  0x080013ec     0x4  startup_MM32L3xx.o [1]
+  .text              ro code  0x080013f0     0x4  startup_MM32L3xx.o [1]
+  .text              ro code  0x080013f4     0x4  startup_MM32L3xx.o [1]
+  .text              ro code  0x080013f8     0x4  startup_MM32L3xx.o [1]
+  .text              ro code  0x080013fc     0x4  startup_MM32L3xx.o [1]
+  .text              ro code  0x08001400     0x4  startup_MM32L3xx.o [1]
+  .text              ro code  0x08001404     0x4  startup_MM32L3xx.o [1]
+  .text              ro code  0x08001408     0x4  startup_MM32L3xx.o [1]
+  .text              ro code  0x0800140c     0x4  startup_MM32L3xx.o [1]
+  .text              ro code  0x08001410     0x4  startup_MM32L3xx.o [1]
+  .text              ro code  0x08001414     0x4  startup_MM32L3xx.o [1]
+  .text              ro code  0x08001418     0x4  startup_MM32L3xx.o [1]
+  .text              ro code  0x0800141c     0x4  startup_MM32L3xx.o [1]
+  .text              ro code  0x08001420     0x4  startup_MM32L3xx.o [1]
+  .text              ro code  0x08001424     0x4  startup_MM32L3xx.o [1]
+  .rodata            const    0x08001428     0x0  packbits_init_single.o [4]
+  Initializer bytes  const    0x08001428     0x7  <for P2-1>
+                            - 0x0800142f  0x1343
+
+"P2", part 1 of 2:                          0x12
+  P2-1                        0x20000000    0x12  <Init block>
+    .data            inited   0x20000000     0x4  system_MM32L3xx.o [1]
+    .bss             inited   0x20000004     0x4  main.o [1]
+    .bss             inited   0x20000008     0x4  main.o [1]
+    .bss             inited   0x2000000c     0x2  tim.o [1]
+    .bss             inited   0x2000000e     0x1  main.o [1]
+    .bss             inited   0x2000000f     0x1  tim.o [1]
+    .bss             inited   0x20000010     0x1  tim.o [1]
+    .bss             inited   0x20000011     0x1  tim3.o [1]
+                            - 0x20000012    0x12
+
+"P2", part 2 of 2:                         0x800
+  CSTACK                      0x20000018   0x800  <Block>
+    CSTACK           uninit   0x20000018   0x800  <Block tail>
+                            - 0x20000818   0x800
+
+
+*******************************************************************************
+*** INIT TABLE
+***
+
+          Address     Size
+          -------     ----
+Copy/packbits (__iar_packbits_init_single3)
+    1 source range, total size 0x7 (38% of destination):
+          0x08001428   0x7
+    1 destination range, total size 0x12:
+          0x20000000  0x12
+
+
+
+*******************************************************************************
+*** MODULE SUMMARY
+***
+
+    Module                  ro code  ro data  rw data
+    ------                  -------  -------  -------
+D:\1-Work\project9_TIMBLDC\TIM_BLDC\project\Debug\Obj: [1]
+    HAL_gpio.o                  214
+    HAL_misc.o                  128
+    HAL_rcc.o                   144
+    HAL_tim.o                 1 604
+    main.o                      344        3        9
+    startup_MM32L3xx.o          436
+    system_MM32L3xx.o           280        1        4
+    tim.o                     1 516        2        4
+    tim3.o                      300        1        1
+    -------------------------------------------------
+    Total:                    4 966        7       18
+
+command line: [2]
+    -------------------------------------------------
+    Total:
+
+dl7M_tln.a: [3]
+    exit.o                        4
+    low_level_init.o              4
+    -------------------------------------------------
+    Total:                        8
+
+rt7M_tl.a: [4]
+    cexit.o                      10
+    cmain.o                      26
+    cstartup_M.o                 12
+    data_init.o                  40
+    packbits_init_single.o       56
+    -------------------------------------------------
+    Total:                      144
+
+shb_l.a: [5]
+    exit.o                       20
+    -------------------------------------------------
+    Total:                       20
+
+    Gaps                          6
+    Linker created                        16    2 048
+-----------------------------------------------------
+    Grand Total:              5 144       23    2 066
+
+
+*******************************************************************************
+*** ENTRY LIST
+***
+
+Entry                      Address   Size  Type      Object
+-----                      -------   ----  ----      ------
+.iar.init_table$$Base   0x08001300          --   Gb  - Linker created -
+.iar.init_table$$Limit  0x08001310          --   Gb  - Linker created -
+?main                   0x08001311         Code  Gb  cmain.o [4]
+BLDCBreakEnable         0x08000d7f    0xe  Code  Gb  tim.o [1]
+BLDCHoldOn              0x08000d57    0x2  Code  Gb  tim.o [1]
+BLDCMotorPrepareCommutation
+                        0x08000af7  0x22e  Code  Gb  tim.o [1]
+BLDCSetCC               0x08000d59   0x26  Code  Gb  tim.o [1]
+BLDCStart               0x08000fa7   0x28  Code  Gb  main.o [1]
+CSTACK$$Base            0x20000018          --   Gb  - Linker created -
+CSTACK$$Limit           0x20000818          --   Gb  - Linker created -
+GPIO_Init               0x08000dad   0xc4  Code  Gb  HAL_gpio.o [1]
+GPIO_ReadInputData      0x08000e71    0x6  Code  Gb  HAL_gpio.o [1]
+GPIO_ResetBits          0x08000e7d    0x6  Code  Gb  HAL_gpio.o [1]
+GPIO_SetBits            0x08000e77    0x6  Code  Gb  HAL_gpio.o [1]
+Hall2MotorON            0x08000d25    0xc  Code  Gb  tim.o [1]
+InitSystick             0x08000f55   0x1e  Code  Gb  main.o [1]
+NVIC_Init               0x08000e85   0x70  Code  Gb  HAL_misc.o [1]
+NVIC_SetPriority        0x08000f05   0x22  Code  Lc  main.o [1]
+RCC_APB1PeriphClockCmd  0x08000751   0x20  Code  Gb  HAL_rcc.o [1]
+RCC_APB1PeriphResetCmd  0x08000791   0x20  Code  Gb  HAL_rcc.o [1]
+RCC_APB2PeriphClockCmd  0x08000731   0x20  Code  Gb  HAL_rcc.o [1]
+RCC_APB2PeriphResetCmd  0x08000771   0x20  Code  Gb  HAL_rcc.o [1]
+Region$$Table$$Base     0x08001300          --   Gb  - Linker created -
+Region$$Table$$Limit    0x08001310          --   Gb  - Linker created -
+SetSysClock             0x080010bd    0x8  Code  Lc  system_MM32L3xx.o [1]
+SetSysClockTo96_HSI     0x080010c5   0x94  Code  Lc  system_MM32L3xx.o [1]
+SysTick_Config          0x08000f27   0x2e  Code  Lc  main.o [1]
+SysTick_Handler         0x08000f73   0x34  Code  Gb  main.o [1]
+SysTick_Handler::cnt    0x20000008    0x4  Data  Lc  main.o [1]
+SystemCoreClock         0x20000000    0x4  Data  Gb  system_MM32L3xx.o [1]
+SystemInit              0x0800105d   0x60  Code  Gb  system_MM32L3xx.o [1]
+TI1_Config              0x08000643   0x38  Code  Lc  HAL_tim.o [1]
+TI2_Config              0x0800067b   0x3c  Code  Lc  HAL_tim.o [1]
+TI3_Config              0x080006b7   0x3c  Code  Lc  HAL_tim.o [1]
+TI4_Config              0x080006f3   0x3e  Code  Lc  HAL_tim.o [1]
+TIM1OFF                 0x08000d3d    0xc  Code  Gb  tim.o [1]
+TIM1ON                  0x08000d31    0xc  Code  Gb  tim.o [1]
+TIM1_TRG_COM_IRQHandler
+                        0x0800099d   0x1c  Code  Gb  tim.o [1]
+TIM2ON                  0x08000d49    0xe  Code  Gb  tim.o [1]
+TIM2_IRQHandler         0x08000ab9   0x3e  Code  Gb  tim.o [1]
+TIM3_IRQHandler         0x08001175   0x1c  Code  Gb  tim3.o [1]
+TIM_BDTRConfig          0x080003b5   0x20  Code  Gb  HAL_tim.o [1]
+TIM_CCPreloadControl    0x0800045d   0x1c  Code  Gb  HAL_tim.o [1]
+TIM_CCxCmd              0x080004af   0x1c  Code  Gb  HAL_tim.o [1]
+TIM_CCxNCmd             0x080004cb   0x1c  Code  Gb  HAL_tim.o [1]
+TIM_ClearFlag           0x0800060b    0x8  Code  Gb  HAL_tim.o [1]
+TIM_ClearITPendingBit   0x0800063b    0x8  Code  Gb  HAL_tim.o [1]
+TIM_Cmd                 0x080003d5   0x1c  Code  Gb  HAL_tim.o [1]
+TIM_CtrlPWMOutputs      0x080003f1   0x22  Code  Gb  HAL_tim.o [1]
+TIM_DeInit              0x080000ed   0x68  Code  Gb  HAL_tim.o [1]
+TIM_GetITStatus         0x08000613   0x28  Code  Gb  HAL_tim.o [1]
+TIM_ICInit              0x08000345   0x70  Code  Gb  HAL_tim.o [1]
+TIM_ITConfig            0x08000413   0x1c  Code  Gb  HAL_tim.o [1]
+TIM_OC1Init             0x08000185   0x6c  Code  Gb  HAL_tim.o [1]
+TIM_OC1PreloadConfig    0x08000479   0x12  Code  Gb  HAL_tim.o [1]
+TIM_OC2Init             0x080001f1   0x7a  Code  Gb  HAL_tim.o [1]
+TIM_OC2PreloadConfig    0x0800048b   0x12  Code  Gb  HAL_tim.o [1]
+TIM_OC3Init             0x0800026b   0x78  Code  Gb  HAL_tim.o [1]
+TIM_OC3PreloadConfig    0x0800049d   0x12  Code  Gb  HAL_tim.o [1]
+TIM_OC4Init             0x080002e3   0x56  Code  Gb  HAL_tim.o [1]
+TIM_SelectCOM           0x08000441   0x1c  Code  Gb  HAL_tim.o [1]
+TIM_SelectHallSensor    0x08000573   0x1c  Code  Gb  HAL_tim.o [1]
+TIM_SelectInputTrigger  0x0800042f   0x12  Code  Gb  HAL_tim.o [1]
+TIM_SelectOCxM          0x080004e7   0x8c  Code  Gb  HAL_tim.o [1]
+TIM_SelectOutputTrigger
+                        0x0800058f   0x12  Code  Gb  HAL_tim.o [1]
+TIM_SelectSlaveMode     0x080005a1   0x12  Code  Gb  HAL_tim.o [1]
+TIM_SetCompare1         0x080005b3    0x4  Code  Gb  HAL_tim.o [1]
+TIM_SetCompare2         0x080005b7    0x4  Code  Gb  HAL_tim.o [1]
+TIM_SetCompare3         0x080005bb    0x4  Code  Gb  HAL_tim.o [1]
+TIM_SetIC1Prescaler     0x080005bf   0x12  Code  Gb  HAL_tim.o [1]
+TIM_SetIC2Prescaler     0x080005d1   0x14  Code  Gb  HAL_tim.o [1]
+TIM_SetIC3Prescaler     0x080005e5   0x12  Code  Gb  HAL_tim.o [1]
+TIM_SetIC4Prescaler     0x080005f7   0x14  Code  Gb  HAL_tim.o [1]
+TIM_TimeBaseInit        0x08000155   0x30  Code  Gb  HAL_tim.o [1]
+__cmain                 0x08001311         Code  Gb  cmain.o [4]
+__exit                  0x08001341   0x14  Code  Gb  exit.o [5]
+__iar_data_init3        0x080012d9   0x28  Code  Gb  data_init.o [4]
+__iar_packbits_init_single3
+                        0x080012a1   0x38  Code  Gb  packbits_init_single.o [4]
+__iar_program_start     0x08001355         Code  Gb  cstartup_M.o [4]
+__iar_systems$$module {Abs}
+                        0x00000001         Data  Gb  command line/config [2]
+__low_level_init        0x0800132b    0x4  Code  Gb  low_level_init.o [3]
+__vector_table          0x08000000         Data  Gb  startup_MM32L3xx.o [1]
+_call_main              0x0800131d         Code  Gb  cmain.o [4]
+_exit                   0x08001335         Code  Gb  cexit.o [4]
+_main                   0x08001327         Code  Gb  cmain.o [4]
+exit                    0x0800132f    0x4  Code  Gb  exit.o [3]
+gBLDCState              0x2000000e    0x1  Data  Gb  main.o [1]
+gCC                     0x20000004    0x4  Data  Gb  main.o [1]
+gSimStep                0x20000011    0x1  Data  Gb  tim3.o [1]
+gStep                   0x2000000f    0x1  Data  Gb  tim.o [1]
+hallccr1                0x2000000c    0x2  Data  Gb  tim.o [1]
+hallpos                 0x20000010    0x1  Data  Gb  tim.o [1]
+initHallSensorTIM2      0x080009b9  0x100  Code  Gb  tim.o [1]
+initMotorBridgeTIM1     0x080007d7  0x1c6  Code  Gb  tim.o [1]
+initRCC                 0x080007c1   0x16  Code  Gb  tim.o [1]
+main                    0x08000fcf   0x62  Code  Gb  main.o [1]
+simMotorPrepareCommutation
+                        0x08001191   0xfe  Code  Gb  tim3.o [1]
+
+
+[1] = D:\1-Work\project9_TIMBLDC\TIM_BLDC\project\Debug\Obj
+[2] = command line
+[3] = dl7M_tln.a
+[4] = rt7M_tl.a
+[5] = shb_l.a
+
+  5 144 bytes of readonly  code memory
+     23 bytes of readonly  data memory
+  2 066 bytes of readwrite data memory
+
+Errors: none
+Warnings: none
