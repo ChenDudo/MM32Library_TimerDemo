@@ -7,8 +7,9 @@
 
 #include "main.h"
 #include "tim.h"
-#include "tim3.h"
-#include "adc.h"
+#include "tim3.h"                                                               // if not use, please ignore
+#include "adc.h"                                                                // if not use, please ignore
+
 ////////////////////////////////////////////////////////////////////////////////
 void InitSystick()
 {
@@ -21,105 +22,53 @@ void SysTick_Handler()
 {
     static u32 cnt;
     cnt++;
-    if(gCC <= TIMCCR) gCC++;
-    if((gCC == TIMCCR) && (gBLDCState == 1)) 
-       gBLDCState = 2;                                                          //BLDC Start is OK --> HOLD
 }
 
-////////////////////////////////////////////////////////////////////////////////
-void BLDCStart()
-{
-    if(gCC >= TIMCCR) gCC = 0;
-    BLDCSetCC(gCC, gCC, gCC);
-}
+
+/* /////////////////////////////////////////////////////////////////////////////
+--------------------------------------------------------------------------------
+      TIM2 (hall timer)            |    TIM3 (Simulate the hall output)
+--------------------------------------------------------------------------------
+     PA_0  : hall input channel1   |     PA_6 (TIM3_CH1)
+--------------------------------------------------------------------------------
+     PA_1  : hall input channel2   |     PA_7 (TIM3_CH2)
+--------------------------------------------------------------------------------
+     PA_2  : hall input channel3   |     PB_0 (TIM3_CH3)
+--------------------------------------------------------------------------------
+NOTE: if use TIM3 simulate, In order to achieve better results, please use anot-
+her board to output and the main function just only init TIM3 and its parameter.
+
+--------------------------------------------------------------------------------
+                      TIM1 (motor output timer)
+--------------------------------------------------------------------------------
+     PA_8  : TIM1_CH1              |      PA_13   : TIM1_CH1N
+--------------------------------------------------------------------------------
+     PA_9  : TIM1_CH2              |      PA_14   : TIM1_CH2N
+--------------------------------------------------------------------------------
+     PA_10 : TIM1_CH3              |      PA_15   : TIM1_CH3N
+--------------------------------------------------------------------------------
+*///////////////////////////////////////////////////////////////////////////////
 
 ////////////////////////////////////////////////////////////////////////////////
-//int main(void)
-//{
-//    SystemInit();
-//    InitSystick();
-//    initRCC();
-//    initTIM3(0, 4799);
-//    initHallSensorTIM2(); 
-//    initMotorBridgeTIM1(TIMPSC, TIMARR, HH);
-//    initADC();
-//    TIM1ON();
-//    TIM2ON();
-//    gBLDCState = 1;
-//    gStep = 1;
-//    gSimStep = 1;
-//    while(1)
-//    {
-//        switch(gBLDCState)
-//        {
-//            case 0:
-//            TIM1OFF();
-//            break;
-//            case 1:
-//            BLDCStart();
-//            break;
-//            case 2:
-//            //BLDCHoldOn(TIMCCR1, TIMCCR2, TIMCCR3);
-//            BLDCHoldOn();
-//            break;
-//            case 3:
-//            BLDCBreakEnable();
-//            break;
-//      }
-//    }
-//}
-/*      the STEP table is suit for UM_MM32L3xx_v1.4 (figure.77)
---------------------------------------------------------------------------------
-             | Step1 | Step2 | Step3 | Step4 | Step5 | Step6 |
-   ----------------------------------------------------------
-  |Channel1  |   1   |   1   |   0   |   0   |   0   |   0   |  GPIOA -- pin 8
-   ----------------------------------------------------------  
-  |Channel1N |   0   |   0   |   0   |   1   |   1   |   0   |  GPIOB -- pin 13
-   ----------------------------------------------------------
-  |Channel2  |   0   |   0   |   1   |   1   |   0   |   0   |  GPIOA -- pin 9
-   ----------------------------------------------------------
-  |Channel2N |   1   |   0   |   0   |   0   |   0   |   1   |  GPIOB -- pin 14
-   ----------------------------------------------------------
-  |Channel3  |   0   |   0   |   0   |   0   |   1   |   1   |	GPIOA -- pin 10
-   ----------------------------------------------------------
-  |Channel3N |   0   |   1   |   1   |   0   |   0   |   0   |	GPIOB -- pin 15
---------------------------------------------------------------------------------
-  BKIN as the brake signal input pin to trigger the TIM1 source --> PB_12
---------------------------------------------------------------------------------
-*/
 int main(void)
 {
-    SystemInit();
-    InitSystick();
-    initRCC();
-    //initTIM3(0, 4799);
-    //initTIM3(0, 1199);
-    initHallSensorTIM2(); 
-    initMotorBridgeTIM1(TIMPSC, TIMARR, HH);
-    //initADC();
-    TIM1ON();
-    TIM2ON();
-    //TIM3ON();
-    gBLDCState = 1;
-    gStep = 1;
-    gSimStep = 1;
-    while(1)
-    {
-        switch(gBLDCState)
-        {
-            case 0:
-            TIM1OFF();
-            break;
-            case 1:
-            BLDCStart();
-            break;
-            case 2:
-            //BLDCHoldOn(TIMCCR1, TIMCCR2, TIMCCR3);
-            BLDCHoldOn();
-            break;
-            case 3:
-            BLDCBreakEnable();
-            break;
-      }
+    SystemInit();                                                               // init systemClock:96MHz
+    InitSystick();                                                              // init systick
+    initRCC();                                                                  // enable RCC
+    
+    //initTIM3(0, 1199);                                                        // init TIM3
+    //TIM3ON();                                                                 // enable TIM3
+    //gSimStep = 1;                                                             // used at TIM3_IRQH
+
+    initHallSensorTIM2();                                                       // init TIM2
+    initMotorBridgeTIM1(TIMPSC, TIMARR, HH);                                    // init TIM1(could choose LL/LH/HL/HH)
+    
+    TIM1ON();                                                                   // enable TIM1
+    TIM2ON();                                                                   // enable TIM2
+
+    //initADC();                                                                // NOTE: if use ADC, please init ADC and check ADC.C config 
+
+    while(1){
+        
     }
 }

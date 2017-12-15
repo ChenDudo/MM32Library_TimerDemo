@@ -4,7 +4,7 @@
 ////////////////////////////////////////////////////////////////////////////////
 
 #define MOTOR_OUTPUT_TIM        TIM1
-#define MOTOR_HALLENC_TIM       TIM2
+#define MOTOR_HALL_TIM       TIM2
 
 //#define TIM_OCMode_Active       0x0050
 //#define TIM_OCMode_Inactive    0x0040

@@ -12,7 +12,7 @@ void initADC()
         
     // input the GPIO of BLDC channel
     GPIO_InitTypeDef GPIO_InitStructure; 
-    GPIO_InitStructure.GPIO_Pin  =  GPIO_Pin_4 | GPIO_Pin_5;                    //Miniboard Ain 
+    GPIO_InitStructure.GPIO_Pin  =  GPIO_Pin_4 | GPIO_Pin_5;                    //Miniboard Ain2 & Ain3
     GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
     GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AIN;
     GPIO_Init(GPIOA, &GPIO_InitStructure);
